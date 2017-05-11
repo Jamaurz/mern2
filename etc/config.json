@@ -1,9 +1,1 @@
-{
-  "apiPrefix": "https://mern-jamaurz.c9users.io",
-  "serverPort": "8080",
-  "db":{
-    "name": "app",
-    "host": "localhost",
-    "port": 27017
-  }
-}
+exports.api = 'https://localhost:8080/';

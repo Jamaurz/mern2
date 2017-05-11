@@ -2,56 +2,34 @@ import React from 'react';
 import { Link } from 'react-router';
 import { connect } from "react-redux"
 
-import {add, addEvent, singIn, singInTwitter, getEvent, getAllEvent} from "../actions/commonActions"
+import { checkAuth, authStore } from "../actions/commonActions"
 
-// import Login from '../components/Login.jsx';
-// import Event from '../components/Event.jsx';
+import Login from '../components/Login.jsx';
 
 import './Layout.sass';
 
 @connect((store, ownProps) => {
     //console.log('ownProps', ownProps);
     return {
-        events: store.common.events,
-        user: store.twitter.user
+        user: store.auth.user
     };
 })
 export default class Layout extends React.Component {
+    componentWillMount() {
+        var newThis = this;
+        checkAuth(function(data) {
+            newThis.props.dispatch(authStore(data));
+        })
+    }
 
     render() {
         return (
             <div>
-                <form action="/login" method="post">
-                    <div>
-                        <label>Username:</label>
-                        <input type="text" name="username"/>
-                    </div>
-                    <div>
-                        <label>Password:</label>
-                        <input type="password" name="password"/>
-                    </div>
-                    <div>
-                        <input type="submit" value="Log In"/>
-                    </div>
-                </form>
-
-                <form action="/signup" method="post">
-                    <div>
-                        <label>Username:</label>
-                        <input type="text" name="username"/>
-                    </div>
-                    <div>
-                        <label>Password:</label>
-                        <input type="password" name="password"/>
-                    </div>
-                    <div>
-                        <label>Email:</label>
-                        <input type="email" name="email"/>
-                    </div>
-                    <div>
-                        <input type="submit" value="Log In"/>
-                    </div>
-                </form>
+                <Link to='/registration' >Registration</Link>
+                <Login login={this.props.user} />
+                <div>
+                    {this.props.children}
+                </div>
             </div>
         )
     }

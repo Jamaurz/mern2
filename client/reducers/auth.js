@@ -1,7 +1,7 @@
 export default function reducer(state={
                                     user: false
                                 }, action) {
-    if (action.type == "SING_IN_TWITTER") {
+    if (action.type == "AUTH_STORE") {
         return {
             ...state,
             user: action.payload

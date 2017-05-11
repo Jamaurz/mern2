@@ -11,15 +11,8 @@ app.get('/info', function(req, res) {
     if(req.user) {
         res.send(req.user.email);
     } else {
-        res.send('test');
+        res.send(false);
     }
-});
-
-app.get('/success', function(req, res) {
-   res.send('success');
-});
-app.get('/failure', function(req, res) {
-    res.send('fail');
 });
 
 app.get('/logout', function (req, res) {
@@ -28,13 +21,14 @@ app.get('/logout', function (req, res) {
 });
 
 app.post('/login',
-    passport.authenticate('login', { successRedirect: '/success',
-        failureRedirect: '/failure' })
+    passport.authenticate('login', {
+        successRedirect: '/',
+        failureRedirect: '/#/login' })
 );
 
 app.post('/signup', passport.authenticate('signup', {
-    successRedirect: '/success',
-    failureRedirect: '/failure',
+    successRedirect: '/',
+    failureRedirect: '/#/registration',
     failureFlash : true
 }));
 
