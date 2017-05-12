@@ -1,16 +1,11 @@
 export default function reducer(state={
-                                    events: []
+                                    msg: ''
                                 }, action) {
 
-    if (action.type ==  "ADD_EVENT") {
+    if (action.type ==  "MSG_STORE") {
         return {
             ...state,
-            events: [...state.events, action.payload],
-        }
-    } else if (action.type ==  "GET_ALL_EVENT") {
-        return {
-            ...state,
-            events: action.payload
+            msg: action.payload,
         }
     }
     return state

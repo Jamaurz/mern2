@@ -11,16 +11,16 @@ export default class Registration extends React.Component {
             <div>
                 <form action="/signup" method="post">
                     <div>
-                        <label>Username:</label>
-                        <input type="text" name="username"/>
+                        <label for='regEmail'>Email:</label>
+                        <input type="email" name="email" id='regEmail' required />
                     </div>
                     <div>
-                        <label>Password:</label>
-                        <input type="password" name="password"/>
+                        <label for='regUsername'>Username:</label>
+                        <input type="text" name="username" id='regUsername' required />
                     </div>
                     <div>
-                        <label>Email:</label>
-                        <input type="email" name="email"/>
+                        <label for='regPassword'>Password:</label>
+                        <input type="password" name="password" id='regPassword' required />
                     </div>
                     <div>
                         <input type="submit" value="Send"/>

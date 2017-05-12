@@ -9,5 +9,11 @@ export default {
     },
     checkAuth() {
         return axios.get(apiPrefix + 'info')
+    },
+    checkMsg() {
+        return axios.get(apiPrefix + 'getMsg')
+    },
+    sendLogin(email, password) {
+        return axios.post(apiPrefix + 'login', {email, password})
     }
 }

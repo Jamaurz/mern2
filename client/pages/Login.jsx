@@ -1,9 +1,10 @@
 import React from 'react';
 import { connect } from "react-redux"
 
+import { passwordStore, emailStore  } from "../actions/loginActions"
+
 @connect((store, ownProps) => {
     return {
-
     };
 })
 export default class Login extends React.Component {
@@ -12,15 +13,15 @@ export default class Login extends React.Component {
             <div>
                 <form action="/login" method="post">
                     <div>
-                        <label>Email:</label>
-                        <input type="type" name="username"/>
+                        <label for='loginEmail'>Email:</label>
+                        <input type='email' name='username' id='loginEmail' placeholder='email' required />
                     </div>
                     <div>
-                        <label>Password:</label>
-                        <input type="password" name="password"/>
+                        <label for='loginPassword'>Password:</label>
+                        <input type='password' name='password' id='loginPassword' placeholder='password' required />
                     </div>
                     <div>
-                        <input type="submit" value="Log In"/>
+                        <input type='submit' value='Log In'/>
                     </div>
                 </form>
             </div>
