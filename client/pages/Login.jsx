@@ -14,11 +14,11 @@ export default class Login extends React.Component {
                 <form action="/login" method="post">
                     <div>
                         <label for='loginEmail'>Email:</label>
-                        <input type='email' name='username' id='loginEmail' placeholder='email' required />
+                        <input type='email' name='username' id='loginEmail' required />
                     </div>
                     <div>
                         <label for='loginPassword'>Password:</label>
-                        <input type='password' name='password' id='loginPassword' placeholder='password' required />
+                        <input type='password' name='password' id='loginPassword' required />
                     </div>
                     <div>
                         <input type='submit' value='Log In'/>

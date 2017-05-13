@@ -5,8 +5,9 @@ var User = new Schema({
     username: String,
     password: String,
     email: String,
-    gender: String,
-    address: String
+    fullname: String,
+    city: String,
+    state: String
 });
 
 module.exports = mongoose.model('User', User);

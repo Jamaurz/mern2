@@ -71,6 +71,9 @@ module.exports = function (passport) {
 
                     // set the user's local credentials
                     newUser.username = req.body.username;
+                    newUser.fullname = '';
+                    newUser.city = '';
+                    newUser.state = '';
                     newUser.password = createHash(password);
                     newUser.email = email;
 
@@ -84,6 +87,7 @@ module.exports = function (passport) {
                         req.session.message = 'User Registration succesful';
                         return done(null, newUser);
                     });
+
                 }
             });
         })

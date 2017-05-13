@@ -36,7 +36,6 @@ export default class Layout extends React.Component {
         return (
             <div class='app'>
                 <div class='navigation'>
-                    <Link to='/registration' >Registration</Link>
                     <Login login={this.props.user} />
                 </div>
                 <div class='message'>{ this.props.msg }</div>

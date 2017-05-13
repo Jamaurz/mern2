@@ -1,1 +1,1 @@
-exports.api = 'https://localhost:8080/';
+exports.api = 'http://localhost:8080/';

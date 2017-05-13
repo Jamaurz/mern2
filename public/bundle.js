@@ -14704,11 +14704,6 @@ var Layout = (_dec = (0, _reactRedux.connect)(function (store, ownProps) {
                 _react2.default.createElement(
                     'div',
                     { className: 'navigation' },
-                    _react2.default.createElement(
-                        _reactRouter.Link,
-                        { to: '/registration' },
-                        'Registration'
-                    ),
                     _react2.default.createElement(_Login2.default, { login: this.props.user })
                 ),
                 _react2.default.createElement(
@@ -14789,7 +14784,7 @@ var Login = (_dec = (0, _reactRedux.connect)(function (store, ownProps) {
                             { htmlFor: "loginEmail" },
                             "Email:"
                         ),
-                        _react2.default.createElement("input", { type: "email", name: "username", id: "loginEmail", placeholder: "email", required: true })
+                        _react2.default.createElement("input", { type: "email", name: "username", id: "loginEmail", required: true })
                     ),
                     _react2.default.createElement(
                         "div",
@@ -14799,7 +14794,7 @@ var Login = (_dec = (0, _reactRedux.connect)(function (store, ownProps) {
                             { htmlFor: "loginPassword" },
                             "Password:"
                         ),
-                        _react2.default.createElement("input", { type: "password", name: "password", id: "loginPassword", placeholder: "password", required: true })
+                        _react2.default.createElement("input", { type: "password", name: "password", id: "loginPassword", required: true })
                     ),
                     _react2.default.createElement(
                         "div",
@@ -14893,7 +14888,7 @@ var Registration = (_dec = (0, _reactRedux.connect)(function (store) {
                             { htmlFor: "regPassword" },
                             "Password:"
                         ),
-                        _react2.default.createElement("input", { type: "password", name: "password", id: "regPassword", required: true })
+                        _react2.default.createElement("input", { type: "password", name: "password", id: "regPassword", pattern: ".{6,}", title: "6 characters minimum", required: true })
                     ),
                     _react2.default.createElement(
                         "div",
@@ -15925,19 +15920,32 @@ function Login(props) {
         return _react2.default.createElement(
             'span',
             null,
-            login,
-            ' ',
             _react2.default.createElement(
-                'a',
-                { href: 'logout' },
-                'Logout'
+                'span',
+                null,
+                login,
+                ' ',
+                _react2.default.createElement(
+                    'a',
+                    { href: 'logout' },
+                    'Logout'
+                )
             )
         );
     } else {
         return _react2.default.createElement(
-            _reactRouter.Link,
-            { to: '/login' },
-            'Login'
+            'span',
+            null,
+            _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/registration' },
+                'Registration'
+            ),
+            _react2.default.createElement(
+                _reactRouter.Link,
+                { to: '/login' },
+                'Login'
+            )
         );
     }
 }
